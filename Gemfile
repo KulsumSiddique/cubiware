@@ -20,11 +20,12 @@ gem 'faker'
 group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers'
 end
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'guard-rspec', require: false
 end
 
 group :development do

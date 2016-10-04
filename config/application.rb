@@ -21,18 +21,16 @@ module Cubiware
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-  end
-end
 
-Rails::Application.configure do |config|
-  config.generators do |g|
-    g.orm                 :active_record
-    g.template_engine     :haml
-    g.test_framework      :shoulda
-    g.stylesheets         false
-    g.javascripts         false
-    g.fixture_replacement :factory_girl
-    # Add a fallback!
-    g.fallbacks[:shoulda] = :rspec
+    config.generators do |g|
+      g.orm                 :active_record
+      g.template_engine     :haml
+      g.test_framework      :shoulda
+      g.stylesheets         false
+      g.javascripts         false
+      g.fixture_replacement :factory_girl, dir: 'spec/support/factories', suffix: '_factory'
+      # Add a fallback!
+      g.fallbacks[:shoulda] = :rspec
+    end
   end
 end
