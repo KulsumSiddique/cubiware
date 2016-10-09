@@ -2,7 +2,6 @@ TV Schedule [![Build Status](https://travis-ci.org/brapacz/cubiware.svg?branch=m
 ================
 
 ### Introduction
-----------------
 
 The code you'll write should be the code that you're happy to put forward for peer review, or deploy into production.
 Some of things that are worth paying attention to:
@@ -17,7 +16,6 @@ If anything is not explicitly specified in the task - feel free to make reasonab
 
 
 ### Task
---------
 
 We need simple REST API for TV guide. You have to design models with information of "channels", "shows", "categories", "schedules".
 Populate it with sample data (make rake task for generating random data).
@@ -28,7 +26,6 @@ Create one web page (bootstrap css) for searching and viewing schedules.
 Do not overengieneer solution - come up with a clean and maintanable codebase that presents best practices
 
 ### Sending in the code
--------------------
 
 Asume you work in a team and commit to git accordingly (comment your code with proper annotations).
 Publish your project on github (private repo should be shared with roxer account if you prefere)
