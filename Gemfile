@@ -33,6 +33,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'guard-rspec', require: false
   gem 'guard-rake', require: false
+  gem 'guard-bundler', require: false
 end
 
 group :development do

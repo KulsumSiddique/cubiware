@@ -22,12 +22,17 @@ RSpec.resource 'Schedules' do
     end
 
     example 'Listing schedules for given day' do
-      do_request(date: future_date )
+      do_request(date: future_date)
       expect(status).to eq 200
 
       expect(json_response).to match array_including hash_including schedule_future.attributes.as_json
       expect(json_response).not_to match array_including hash_including 'id' => schedule.id
       expect(json_response).not_to match array_including hash_including 'id' => schedule_past.id
+    end
+
+    example 'Listing schedules for given day, but param is invalid' do
+      do_request(date:  'foo')
+      expect(status).to eq 422
     end
 
     example 'Listing schedules for given channel' do
