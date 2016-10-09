@@ -1,4 +1,4 @@
-TV Schedule [![Build Status](https://travis-ci.org/brapacz/cubiware.svg?branch=master)](https://travis-ci.org/brapacz/cubiware)
+TV Schedule [![Build Status](https://travis-ci.org/brapacz/cubiware.svg?branch=master)](https://travis-ci.org/brapacz/cubiware) [![Code Climate](https://codeclimate.com/github/brapacz/cubiware/badges/gpa.svg)](https://codeclimate.com/github/brapacz/cubiware) [![Test Coverage](https://codeclimate.com/github/brapacz/cubiware/badges/coverage.svg)](https://codeclimate.com/github/brapacz/cubiware/coverage) [![Issue Count](https://codeclimate.com/github/brapacz/cubiware/badges/issue_count.svg)](https://codeclimate.com/github/brapacz/cubiware)
 ================
 
 ### Introduction

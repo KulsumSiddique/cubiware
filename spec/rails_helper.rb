@@ -5,6 +5,8 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'simplecov'
+require 'codeclimate-test-reporter'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -63,3 +65,6 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+CodeClimate::TestReporter.start
+SimpleCov.start 'rails'

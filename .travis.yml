@@ -23,6 +23,8 @@ services:
   - postgresql
 
 addons:
+  code_climate:
+    repo_token: 73b2b503c9d6147acc8c12e8a6d1326212500f39bc7500547e6b16af7dde13ad
   apt:
     sources:
     - precise-pgdg-9.5
