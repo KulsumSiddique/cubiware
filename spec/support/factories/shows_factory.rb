@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :show do
-    name { |i| "#{Faker::Lorem.sentence} #{i}" }
+    sequence(:name) { |i| "#{Faker::Lorem.sentence} #{i}" }
     category
   end
 end

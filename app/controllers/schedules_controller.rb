@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
   def index
-    @schedules = scope
+    @schedules = load_schedules
     respond_to do |format|
       format.json { render json: @schedules }
     end
@@ -15,18 +15,12 @@ class SchedulesController < ApplicationController
 
   private
 
-  def scope
-    query = Schedule.for_day(date)
-    query.where!(channel_id: channel_id) if channel_id
-    query
+  def load_schedules
+    SchedulesRetriever.new(channel_id: channel_id, date: date).retrieve
   end
 
   def date
-    if params.has_key? :date
-      Date.parse(params[:date])
-    else
-      Date.today
-    end
+    Date.parse(params[:date]) if params.has_key? :date
   end
 
   def channel_id
