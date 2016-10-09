@@ -13,7 +13,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'jquery-datatables-rails', '~> 3.3.0'
-gem 'faker'
+gem 'faker' # for generating seeds
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'rspec_api_documentation'
 
 # gem 'capistrano-rails', group: :development
 
@@ -34,5 +37,3 @@ group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
 end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
