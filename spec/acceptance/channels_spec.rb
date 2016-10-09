@@ -1,7 +1,9 @@
-require 'rails_helper'
-require 'rspec_api_documentation/dsl'
+require 'acceptance_helper'
 
 RSpec.resource 'Channels' do
+  header "Accept", "application/json"
+  header "Content-Type", "application/json"
+
   let!(:channel) { FactoryGirl.create :channel }
 
   get '/channels.json' do
@@ -18,7 +20,7 @@ RSpec.resource 'Channels' do
       expect(status).to eq 200
     end
 
-    example_request 'When channel is missing' do
+    example 'When channel is missing' do
       channel.destroy
       do_request(id: channel.id)
       expect(status).to eq 404

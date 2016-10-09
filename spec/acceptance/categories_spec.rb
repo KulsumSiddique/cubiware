@@ -1,7 +1,9 @@
-require 'rails_helper'
-require 'rspec_api_documentation/dsl'
+require 'acceptance_helper'
 
 RSpec.resource 'Categories' do
+  header "Accept", "application/json"
+  header "Content-Type", "application/json"
+
   let!(:category) { FactoryGirl.create :category }
 
   get '/categories.json' do
@@ -18,7 +20,7 @@ RSpec.resource 'Categories' do
       expect(status).to eq 200
     end
 
-    example_request 'When category is missing' do
+    example 'When category is missing' do
       category.destroy
       do_request(id: category.id)
       expect(status).to eq 404

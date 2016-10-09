@@ -1,7 +1,9 @@
-require 'rails_helper'
-require 'rspec_api_documentation/dsl'
+require 'acceptance_helper'
 
 RSpec.resource 'Shows' do
+  header "Accept", "application/json"
+  header "Content-Type", "application/json"
+
   let!(:show) { FactoryGirl.create :show }
 
   get '/shows.json' do
@@ -18,7 +20,7 @@ RSpec.resource 'Shows' do
       expect(status).to eq 200
     end
 
-    example_request 'When show is missing' do
+    example 'When show is missing' do
       show.destroy
       do_request(id: show.id)
       expect(status).to eq 404

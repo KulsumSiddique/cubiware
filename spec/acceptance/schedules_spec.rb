@@ -1,10 +1,13 @@
-require 'rails_helper'
-require 'rspec_api_documentation/dsl'
+require 'acceptance_helper'
 
 RSpec.resource 'Schedules' do
+  header "Accept", "application/json"
+  header "Content-Type", "application/json"
+
   let!(:schedule)        { FactoryGirl.create :schedule }
   let!(:schedule_past)   { FactoryGirl.create :schedule, :past }
   let!(:schedule_future) { FactoryGirl.create :schedule, :future }
+  let(:future_date)      { schedule_future.time.to_date.to_json }
 
   get '/schedules.json' do
     parameter :date, 'Day to display'
@@ -18,8 +21,8 @@ RSpec.resource 'Schedules' do
       expect(json_response).not_to match array_including hash_including 'id' => schedule_past.id
     end
 
-    example_request 'Listing schedules for given day' do
-      do_request(date: schedule_future.time.to_date)
+    example 'Listing schedules for given day' do
+      do_request(date: future_date )
       expect(status).to eq 200
 
       expect(json_response).to match array_including hash_including schedule_future.attributes.as_json
@@ -27,7 +30,7 @@ RSpec.resource 'Schedules' do
       expect(json_response).not_to match array_including hash_including 'id' => schedule_past.id
     end
 
-    example_request 'Listing schedules for given channel' do
+    example 'Listing schedules for given channel' do
       do_request(channel_id: schedule.channel.id)
       expect(status).to eq 200
 
@@ -38,13 +41,13 @@ RSpec.resource 'Schedules' do
   end
 
   get '/schedules/:id.json' do
-    parameter :id, "Schedule's id"
+    parameter :id, "Schedule's id", required: true
     example 'Retrieving schedule data' do
       do_request(id: schedule.id)
       expect(status).to eq 200
     end
 
-    example_request 'When schedule is missing' do
+    example 'When schedule is missing' do
       schedule.destroy
       do_request(id: schedule.id)
       expect(status).to eq 404
