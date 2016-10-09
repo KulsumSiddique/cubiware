@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :channel do
-    name { Faker::Lorem.word }
+    name { |i| "#{Faker::Lorem.word} #{i}" }
   end
 end

@@ -28,7 +28,7 @@ module Cubiware
       g.test_framework      :shoulda
       g.stylesheets         false
       g.javascripts         false
-      g.fixture_replacement :factory_girl, dir: 'spec/support/factories', suffix: '_factory'
+      g.fixture_replacement :factory_girl, dir: 'spec/support/factories', suffix: 'factory'
       # Add a fallback!
       g.fallbacks[:shoulda] = :rspec
     end

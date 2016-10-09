@@ -57,6 +57,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
+    database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -83,6 +84,9 @@ GEM
       shellany (~> 0.0)
       thor (>= 0.18.1)
     guard-compat (1.2.1)
+    guard-rake (1.0.0)
+      guard
+      rake
     guard-rspec (4.7.2)
       guard (~> 2.1)
       guard-compat (~> 1.1)
@@ -251,8 +255,10 @@ DEPENDENCIES
   byebug
   codeclimate-test-reporter
   coffee-rails (~> 4.2)
+  database_cleaner
   factory_girl_rails
   faker
+  guard-rake
   guard-rspec
   haml-rails
   jbuilder (~> 2.5)

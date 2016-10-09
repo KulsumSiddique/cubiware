@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :show do
-    name { Faker::Lorem.word }
+    name { |i| "#{Faker::Lorem.sentence} #{i}" }
     category
-    channel
   end
 end

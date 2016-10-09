@@ -26,11 +26,13 @@ group :test do
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem "codeclimate-test-reporter", require: false
+  gem 'database_cleaner'
 end
 
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'guard-rspec', require: false
+  gem 'guard-rake', require: false
 end
 
 group :development do
