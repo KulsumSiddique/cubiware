@@ -1,6 +1,8 @@
 TV Schedule [![Build Status](https://travis-ci.org/brapacz/cubiware.svg?branch=master)](https://travis-ci.org/brapacz/cubiware) [![Code Climate](https://codeclimate.com/github/brapacz/cubiware/badges/gpa.svg)](https://codeclimate.com/github/brapacz/cubiware) [![Test Coverage](https://codeclimate.com/github/brapacz/cubiware/badges/coverage.svg)](https://codeclimate.com/github/brapacz/cubiware/coverage) [![Issue Count](https://codeclimate.com/github/brapacz/cubiware/badges/issue_count.svg)](https://codeclimate.com/github/brapacz/cubiware)
 ================
 
+## Requirements
+
 ### Introduction
 
 The code you'll write should be the code that you're happy to put forward for peer review, or deploy into production.
@@ -29,3 +31,27 @@ Do not overengieneer solution - come up with a clean and maintanable codebase th
 
 Asume you work in a team and commit to git accordingly (comment your code with proper annotations).
 Publish your project on github (private repo should be shared with roxer account if you prefere)
+
+## Solution
+
+### Instalation
+
+```bash
+git clone git@github.com:brapacz/cubiware.git
+cd cubiware
+vim config/database.yml
+bundle install
+bundle exec rake db:setup data:generate_sample
+bundle exec rake docs:generate
+bundle exec rspec
+```
+
+### Loading sample data
+
+```bash
+bundle exec rake data:generate_sample
+```
+
+### Documentation
+
+I used [rspec_api_documentation](http://github.com/zipmark/rspec_api_documentation) gem. for integrating documentation with tests. To generate documentation for API endpoints, please run `bundle exec rake docs:generate` and go into `doc` directory.
