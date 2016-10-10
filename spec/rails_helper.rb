@@ -22,7 +22,7 @@ require 'codeclimate-test-reporter'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -81,8 +81,8 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    FactoryGirl.definition_file_paths = %w(spec/support/factories)
-    FactoryGirl.find_definitions
+    # FactoryGirl.definition_file_paths = %w(spec/support/factories)
+    # FactoryGirl.find_definitions
     FactoryGirl.lint
   end
 end
